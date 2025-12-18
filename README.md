@@ -13,7 +13,7 @@ Although HRRP data are inherently noisy and difficult to interpret, the apparent
 
 LOSP(L, W, asp) = |L · cos(asp)| + |W · sin(asp)|
 
-where _L_ and _W_ denote the ship’s true **length** and **width**, and _asp_ is the radar **aspect angle** at acquisition time.
+where _L_ and _W_ denote the target's true **length** and **width**, and _asp_ is target's **aspect angle** at acquisition time.
 
 Using a robust detection of the ship’s occupied range bins, the visual target's length called _Length on Range Profile_ (LRP) can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _LOSP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
 
