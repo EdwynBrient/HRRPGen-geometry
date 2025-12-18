@@ -413,7 +413,7 @@ class DDPM(nn.Module):
             variance = beta_mult * noise
         return pred_prev_sample + variance
 
-class DDPMlight1D2D(pl.LightningModule):
+class DDPMLightVA(pl.LightningModule):
     def __init__(self, ddpm, config, dataset, validation_indices, save_path, minmax):
         super().__init__()
         self.config = config
