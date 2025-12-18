@@ -21,7 +21,7 @@ The same analysis applied to **generated HRRP data** shows that the synthesized 
 
 <figure>
   <img src="assets/LRP_LOSP.png" alt="LRP LOSP" />
-  <figcaption>Figure 1 — Correlation between visual _Length of Range Profile_ (LRP) and _Line-Of-Sight Projection_ (LOSP) for measured and generated data. </figcaption>
+  <figcaption>Figure 1 — Correlation between visual <i>Length of Range Profile</i> (LRP) and <i>Line-Of-Sight Projection</i> (LOSP) for measured and generated data. </figcaption>
 </figure>
 
 ## Quick requirements
