@@ -1,9 +1,28 @@
-# ICASSP HRRP Training
+# HRRP Missing Scenarios
 
-Cleaned-up DDPM / GAN training code for HRRP radar profiles.  
+DDPM / GAN for High-Resolution-Range-Profile generation, in proceedings at ICASSP26.
 Executable code lives in `src/ship_hrrp_gen`, configs in `configs/`.
+<figure>
+  <img src="assets/ship_hrrp.png" alt="Generated samples overview" />
+  <figcaption>Figure 1 — Instance of generated HRRP data from `data/ship_hrrp.pt` </figcaption>
+</figure>
 
-<img src="assets/ship_hrrp.png" alt="Generated samples overview" />
+# Top contribution
+
+Although HRRP data are inherently noisy and difficult to interpret, the apparent target length observed in a radar HRRP follows a well-defined geometric relationship with the target’s aspect angle. This relationship is described by the _Line-Of-Sight Projection (LOSP)_ model:
+
+LOSP(L, W, asp) = |L · cos(asp)| + |W · sin(asp)|
+
+where _L_ and _W_ denote the ship’s true **length** and **width**, and _asp_ is the radar **aspect angle** at acquisition time.
+
+Using a robust detection of the ship’s occupied range bins, the apparent target length can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _LOSP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
+
+The same analysis applied to **generated HRRP data** shows that the synthesized signals follow the same LOSP-consistent trends and successfully **fill missing aspect-angle scenarios**. This demonstrates that the generation process preserves the underlying physical and geometric constraints of radar line-of-sight projections, beyond simple signal-level realism.
+
+<figure>
+  <img src="assets/LRP_LOSP.png" alt="LRP LOSP" />
+  <figcaption>Figure 1 — Correlation between visual _Length of Range Profile_ (LRP) and _Line-Of-Sight Projection_ (LOSP) for measured and generated data. </figcaption>
+</figure>
 
 ## Quick requirements
 - Python ≥ 3.9
