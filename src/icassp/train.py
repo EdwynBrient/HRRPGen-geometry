@@ -10,7 +10,7 @@ from pytorch_lightning import loggers as pl_loggers
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 
 from icassp.dataset import RP_VADataset
-from icassp.ddpm import DDPM, DDPMlight1D2D, ResUnet
+from icassp.ddpm import DDPM, DDPMLightVA, ResUnet
 from icassp.gan import Discriminator, GANlight, Generator
 from icassp.utils import (
     compute_metrics,
@@ -88,7 +88,7 @@ def build_model(config, dataset, val_idx, test_idx, save_path, minmax):
         scheduler = load_scheduler_from_config(config)
         unet = ResUnet(config=config)
         ddpm = DDPM(unet, config["num_timesteps"], var_scheduler=scheduler)
-        model = DDPMlight1D2D(ddpm, config, dataset, [val_idx, test_idx], save_path, minmax)
+        model = DDPMLightVA(ddpm, config, dataset, [val_idx, test_idx], save_path, minmax)
     elif config["model"] == "gan":
         model = GANlight(Generator, Discriminator, config, dataset, [val_idx, test_idx], save_path, minmax)
         ddpm = None
@@ -191,7 +191,7 @@ def main():
         return
 
     if config["model"] == "ddpm":
-        model = DDPMlight1D2D.load_from_checkpoint(
+        model = DDPMLightVA.load_from_checkpoint(
             best_ckpt,
             ddpm=ddpm,
             config=config,
