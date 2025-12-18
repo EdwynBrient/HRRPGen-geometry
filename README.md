@@ -15,13 +15,13 @@ LOSP(L, W, asp) = |L · cos(asp)| + |W · sin(asp)|
 
 where _L_ and _W_ denote the ship’s true **length** and **width**, and _asp_ is the radar **aspect angle** at acquisition time.
 
-Using a robust detection of the ship’s occupied range bins, the apparent target length can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _LOSP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
+Using a robust detection of the ship’s occupied range bins, the visual _Length on Range Profile_ target length (LRP) can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _LOSP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
 
 The same analysis applied to **generated HRRP data** shows that the synthesized signals follow the same LOSP-consistent trends and successfully **fill missing aspect-angle scenarios**. This demonstrates that the generation process preserves the underlying physical and geometric constraints of radar line-of-sight projections, beyond simple signal-level realism.
 
 <figure>
   <img src="assets/LRP_LOSP.png" alt="LRP LOSP" />
-  <figcaption>Figure 2 — Correlation between visual <i>Length of Range Profile</i> (LRP) and <i>Line-Of-Sight Projection</i> (LOSP) for measured and generated data. </figcaption>
+  <figcaption>Figure 2 — Correlation between visual <i>Length on Range Profile</i> (LRP) and <i>Line-Of-Sight Projection</i> (LOSP) for measured and generated data. </figcaption>
 </figure>
 
 ## Quick requirements
