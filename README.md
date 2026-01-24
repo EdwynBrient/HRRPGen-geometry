@@ -1,6 +1,6 @@
 # HRRP Missing Scenarios
 
-DDPM / GAN for High-Resolution-Range-Profile generation, in proceedings at ICASSP26.
+DDPM / GAN for High-Resolution-Range-Profile generation, in proceedings at EUSIPCO26.
 Executable code lives in `src/ship_hrrp_gen`, configs in `configs/`.
 <figure>
   <img src="assets/ship_hrrp.png" alt="Generated samples overview" />
