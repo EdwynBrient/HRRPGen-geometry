@@ -9,19 +9,30 @@ Executable code lives in `src/ship_hrrp_gen`, configs in `configs/`.
 
 # Top contribution
 
-Although HRRP data are inherently noisy and difficult to interpret, the theoretical target length observed in a radar HRRP follows a well-defined geometric relationship with the target’s aspect angle. This relationship is described by the _Line-Of-Sight Projection (LOSP)_ model:
+## Fundamental conditions
 
-LOSP(L, W, asp) = |L · cos(asp)| + |W · sin(asp)|
-
-where _L_ and _W_ denote the target's true **length** and **width**, and _asp_ is target's **aspect angle** at acquisition time.
-
-Using a robust detection of the target’s occupied range bins, the visual target's length called _Length on Range Profile_ (LRP) can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _LOSP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
-
-The same analysis applied to **generated HRRP data** shows that the synthesized signals follow the same LOSP-consistent trends and successfully **fill missing aspect-angle scenarios** at a coarse scale. This demonstrates that the generation process preserves the underlying physical and geometric constraints of radar line-of-sight projections, beyond simple signal-level realism.
+We show that the ship's dimensions and its aspect angle at acquisition are mandatory conditions for generating a ship-specific HRRP. These conditions are interdependent, as shown in the table below.
 
 <figure>
   <img src="assets/comparison_lrp.png" alt="LRP LOSP" />
-  <figcaption>Figure 2 — Correlation between visual <i>Length on Range Profile</i> (LRP) and <i>Line-Of-Sight Projection</i> (LOSP) for measured and generated data. </figcaption>
+  <figcaption>Table 1 — Generation metrics for different models and conditioning types. The best scores for each model are in bold. </figcaption>
+</figure>
+
+## Generated HRRP follow TLOP
+
+Although HRRP data are inherently noisy and difficult to interpret, the theoretical target length observed in a radar HRRP follows a well-defined geometric relationship with the target’s aspect angle. This relationship is described by the Theoretical Length of Object Projection (TLOP)_ model:
+
+TLOP(L, W, asp) = |L · cos(asp)| + |W · sin(asp)|
+
+where _L_ and _W_ denote the target's true **length** and **width**, and _asp_ is target's **aspect angle** at acquisition time.
+
+Using a robust detection of the target’s occupied range bins, the visual target's length called _Length on Range Profile_ (LRP) can be estimated directly from HRRP data. As shown in the accompanying figure, these measured lengths exhibit a clear correlation with the theoretical _TLOP_ curves, confirming that the physical projection geometry is preserved in real radar measurements.
+
+The same analysis applied to the **generated HRRP data** shows that the synthesized signals exhibit LOSP-consistent trends and successfully **fill missing aspect-angle scenarios** at a coarse scale. This demonstrates that the generation process preserves the underlying physical and geometric constraints of radar line-of-sight projections, beyond simple signal-level realism.
+
+<figure>
+  <img src="assets/comparison_lrp.png" alt="LRP LOSP" />
+  <figcaption>Figure 2 — Correlation between visual <i>Length on Range Profile</i> (LRP) and <i>Theoretical Length of Object Projection</i> (TLOP) for measured and generated data. </figcaption>
 </figure>
 
 ## Quick requirements
@@ -73,3 +84,15 @@ Artifacts (checkpoints, figures, TensorBoard logs) are written under `results/` 
 ## Notes
 - Intended for a quick demo run on the 128 generated samples; no multi-GPU setup required.
 - Final metrics rely on `compute_metrics` in `ship_hrrp_gen.utils`. If there is no test split (`test_idx` empty), use `--skip-eval`.
+
+## Citation 
+
+```
+@inproceedings{brient2026eusipco,
+  author    = {Edwyn Brient and Santiago Velasco{-}Forero and Rami Kassab},
+  title     = {{Conditional Generative Models for High-Resolution Range Profile: Capturing Global Trends in a Large-Scale Maritime Dataset}},
+  booktitle = {Proc. European Signal Processing Conference (EUSIPCO)},
+  year      = {2026},
+  note      = {to appear}
+}
+```
