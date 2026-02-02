@@ -14,7 +14,7 @@ Executable code lives in `src/ship_hrrp_gen`, configs in `configs/`.
 We show that the ship's dimensions and its aspect angle at acquisition are mandatory conditions for generating a ship-specific HRRP. These conditions are interdependent, as shown in the table below.
 
 <figure>
-  <img src="assets/comparison_lenrp.png" alt="LRP LOSP" />
+  <img src="assets/Results_table.png" alt="LRP LOSP" />
   <figcaption>Table 1 — Generation metrics for different models and conditioning types. The best scores for each model are in bold. </figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ Using a robust detection of the target’s occupied range bins, the visual targe
 The same analysis applied to the **generated HRRP data** shows that the synthesized signals exhibit LOSP-consistent trends and successfully **fill missing aspect-angle scenarios** at a coarse scale. This demonstrates that the generation process preserves the underlying physical and geometric constraints of radar line-of-sight projections, beyond simple signal-level realism.
 
 <figure>
-  <img src="assets/comparison_lrp.png" alt="LRP LOSP" />
+  <img src="assets/comparison_lenrp.png" alt="LRP LOSP" />
   <figcaption>Figure 2 — Correlation between visual <i>Length on Range Profile</i> (LRP) and <i>Theoretical Length of Object Projection</i> (TLOP) for measured and generated data. </figcaption>
 </figure>
 
