@@ -14,7 +14,7 @@ Executable code lives in `src/ship_hrrp_gen`, configs in `configs/`.
 We show that the ship's dimensions and its aspect angle at acquisition are mandatory conditions for generating a ship-specific HRRP. These conditions are interdependent, as shown in the table below.
 
 <figure>
-  <img src="assets/comparison_lrp.png" alt="LRP LOSP" />
+  <img src="assets/comparison_lenrp.png" alt="LRP LOSP" />
   <figcaption>Table 1 — Generation metrics for different models and conditioning types. The best scores for each model are in bold. </figcaption>
 </figure>
 
