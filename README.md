@@ -40,7 +40,7 @@ In practice, we estimate an empirical **LRP** (Length on Range Profile) from the
 
 #### Generated HRRP examples
 
-<img src="assets/ship_hrrp_banner.png" alt="Generated HRRP examples" />
+<img src="assets/HRRP_comparison.png" alt="Generated HRRP examples" />
 
 As in the paper, it is normal that nearest-match comparisons are not perfect at fine scale (HRRP is highly variable and noisy). The key objective here is to match **coarse-scale geometry-driven structure**.
 
