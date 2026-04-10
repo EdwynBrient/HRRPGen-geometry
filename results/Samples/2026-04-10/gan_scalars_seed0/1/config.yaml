@@ -1,0 +1,29 @@
+model_name: gan_scalars_serloss
+figure_path: ./results/Samples/ gan_scalars
+model: gan
+epochs: 5
+batch_size: 128
+generalize: 1
+valrange: None
+loss: mse
+lim_data: 0
+class_free:
+  bool: 0
+  guidance: 0
+mod_ch: 32
+ch_mul: [1, 2, 3, 4]
+num_res: 2
+lr: 0.0001
+cosine_annealing: 1
+dropout: 0.1
+num_timesteps: 800
+val_every_n_data: 524288
+inf_mode: step
+inf_every_n_step: 2000
+inf_every_n_epoch: 1
+conditionned: 
+  bool: 1
+  type: scalars
+  scal_emb: 1 # 0 ou 1
+  num_res: 2
+  noise: 0.1

@@ -1,0 +1,35 @@
+model_name: ddpm
+figure_path: ./results/Samples/ ddpm
+model: ddpm
+epochs: 25
+batch_size: 128
+generalize: 1
+valrange: None
+loss: mse
+lim_data: 0
+class_free:
+  bool: 0
+  guidance: 0
+mod_ch: 16
+ch_mul: [1, 2, 3, 4]
+num_res: 3
+lr: 0.001
+cosine_annealing: 1
+dropout: 0.1
+num_timesteps: 800
+val_every_n_data: 65536
+inf_mode: epoch
+inf_every_n_step: 2000
+inf_every_n_epoch: 1
+conditionned: 
+  bool: 0
+  type: scalars # masks, scalars or both
+  scal_emb: 1 # 0 ou 1
+  dims: 1 # utiliser les dimensions du navire
+  va: 1   # utiliser la vitesse
+  num_res: 2
+  noise: 0.1
+scheduler:
+  name: cosine
+  s: 0.1
+  clipping_value: 0.98
