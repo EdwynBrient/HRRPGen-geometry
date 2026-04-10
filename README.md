@@ -1,4 +1,4 @@
-# Eusipco results
+# Conditional Generative Models for High-Resolution Range Profiles
 
 Experiments following the paper "Conditional Generative Models for High-Resolution Range Profiles: Capturing Geometry-Driven Trends in a Large-Scale Maritime Dataset", E. Brient, S. Velasco-Forero, R. Kassab submitted at Eusipco 2026 
 
